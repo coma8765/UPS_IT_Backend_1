@@ -34,11 +34,14 @@ exports.redirect	= function (rq, rp) {
 
 exports.countRedirect 	= function (rq, rp) {
 	path = rq.path.split("/")[1];
-	if ( Object.keys( short_urls ).includes( path ))               	
+	if ( Object.keys( short_urls ).includes( path )) {             	
 		var data = { viewCount: short_urls[path]["count_redirect"]  };
 		rp.status(200).json(data);
-        } else {
+        } 
+	else {
                 rp.status(404).send("Page not found");
         };
 
 };
+
+
